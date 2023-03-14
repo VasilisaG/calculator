@@ -13,7 +13,6 @@ let percent = document.querySelector('.percent')
 ravno.addEventListener('click', function (e) {
   
   applyLastOperation()
-
   display.value = result
   resetVariableValues ()
   
