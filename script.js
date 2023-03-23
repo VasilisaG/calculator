@@ -9,6 +9,7 @@ let actions = document.querySelectorAll('.action')
 let ravno = document.querySelector('.result')
 let clear = document.querySelector ('.AC')
 let percent = document.querySelector('.percent')
+let comma = document.querySelector('.comma')
 
 ravno.addEventListener('click', function (e) {
   
@@ -82,3 +83,8 @@ percent.addEventListener('click', function() {
 
   currentDisplayValue = currentDisplayValueWithPercent
 }) 
+
+comma.addEventListener('click', function() {
+ currentDisplayValue =  currentDisplayValue + '.'
+ display.value = currentDisplayValue
+})
