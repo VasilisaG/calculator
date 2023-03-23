@@ -26,8 +26,7 @@ function resetVariableValues ()
   currentDisplayValue = ''
 }
 
-function applyLastOperation()
-{
+function applyLastOperation(){
   if (lastOperation != ''){
     if(lastOperation == '+'){
       result = result + Number(currentDisplayValue)
@@ -39,7 +38,12 @@ function applyLastOperation()
       result = result * Number(currentDisplayValue)
     }
     if(lastOperation == '÷'){
-      result = result / Number(currentDisplayValue)
+      if (Number(currentDisplayValue) === 0){
+        result = 'ошибка'
+        lastOperation = ''
+        currentDisplayValue = ''
+      } else {
+        result = result / Number(currentDisplayValue)
     }
     
   }else{
