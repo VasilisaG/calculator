@@ -87,8 +87,9 @@ percent.addEventListener('click', function() {
   currentDisplayValue = currentDisplayValueWithPercent
 }) 
 
-comma.addEventListener ('click', function() {
- (currentDisplayValue =  currentDisplayValue + '.')
- display.value = currentDisplayValue 
-
+comma.addEventListener('click', function() {
+  if (!currentDisplayValue.includes('.')) { 
+    currentDisplayValue += '.'
+  }
+  display.value = currentDisplayValue
 })
