@@ -1,5 +1,5 @@
 let lastOperation = ''
-let result = new Number()
+let result = ''
 
 let currentDisplayValue = ''
 
@@ -21,7 +21,7 @@ ravno.addEventListener('click', function (e) {
 
 function resetVariableValues ()
 {
-  result = 0 
+  result = ''
   lastOperation = ''
   currentDisplayValue = ''
 }
@@ -29,24 +29,22 @@ function resetVariableValues ()
 function applyLastOperation(){
   if (lastOperation != ''){
     if(lastOperation == '+'){
-      result = result + Number(currentDisplayValue)
+      result = Number(result) + Number(currentDisplayValue)
     }
     if(lastOperation == '-'){
-      result = result - Number(currentDisplayValue)
+      result = Number(result) - Number(currentDisplayValue)
     }
     if(lastOperation == 'X'){
-      result = result * Number(currentDisplayValue)
+      result = Number(result) * Number(currentDisplayValue)
     }
     if(lastOperation == '÷'){
       if (Number(currentDisplayValue) === 0){
         result = 'ошибка'
-        lastOperation = ''
-        currentDisplayValue = ''
       } else {
-        result = result / Number(currentDisplayValue)
+        result = Number(result) / Number(currentDisplayValue)
+      }
     }
-    
-  }else{
+  } else {
     result = Number(currentDisplayValue)
   }
 }
@@ -69,26 +67,28 @@ numbers.forEach(function(number) {
     currentDisplayValue += e.target.value
     display.value = currentDisplayValue
   
-}) 
+  }) 
 })
+
 clear.addEventListener( 'click', function () {
   resetVariableValues ()
   display.value = ''
 })
 
 percent.addEventListener('click', function() {
-  if (result == 0){
+  if (result == ''){
     result = 1
   }
 
-  let currentDisplayValueWithPercent = result / 100 * Number(currentDisplayValue);
+  let currentDisplayValueWithPercent = Number(result) / 100 * Number(currentDisplayValue);
 
   display.value = currentDisplayValueWithPercent
 
   currentDisplayValue = currentDisplayValueWithPercent
 }) 
 
-comma.addEventListener('click', function() {
- currentDisplayValue =  currentDisplayValue + '.'
- display.value = currentDisplayValue
+comma.addEventListener ('click', function() {
+ (currentDisplayValue =  currentDisplayValue + '.')
+ display.value = currentDisplayValue 
+
 })
